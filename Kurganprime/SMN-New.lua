@@ -43,11 +43,25 @@ function user_unload()
 end
 
 function init_gear_sets()
-	
+	--------------------------------------
+	-- Augmented gear
+	--------------------------------------
+	Conveyance = {}
+	Conveyance.BPDelay = { back="Conveyance Cape", augments={} }
+
 	--------------------------------------
 	-- Precast sets
 	--------------------------------------
-	
+	sets.precast.BP = {
+		ammo="Seraphicaller",
+		head="Beckoner's Horn +1",
+		neck="Caller's Pendant",
+		body="Glyphic Doublet +1",
+		ring1="Evoker's Ring",
+		back=Conveyance.BPDelay,
+		waist="Lucidity Sash"
+	}
+
 	-- Sets to apply to arbitrary JAs
 	sets.precast.JA['No Foot Rise'] = {body="Etoile Casaque +2"}
 	
@@ -58,7 +72,9 @@ function init_gear_sets()
 	sets.precast.Waltz['Healing Waltz'] = {}
 
     -- Sets for fast cast gear for spells
-	sets.precast.FC = {ear2="Loquacious Earring"}
+	sets.precast.FC = {
+		ear2="Loquacious Earring"
+	}
 
     -- Fast cast gear for specific spells or spell maps
 	sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
@@ -73,13 +89,17 @@ function init_gear_sets()
 	--------------------------------------
 	-- Midcast sets
 	--------------------------------------
+	sets.midcast.BPMerit = {}
+	sets.midcast.BPPhysical = {}
+	sets.midcast.BPHybrid = {}
+	sets.midcast.BPWard = {}
+	sets.midcast.Siphon = {}
 
     -- Generic spell recast set
 	sets.midcast.FastRecast = {}
 		
 	-- Specific spells
 	sets.midcast.Utsusemi = {}
-
 	
 	--------------------------------------
 	-- Idle/resting/defense/etc sets
