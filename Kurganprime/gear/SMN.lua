@@ -15,18 +15,28 @@ function init_gear_sets()
     --------------------------------------
 	Keraunos = {}
 	Keraunos.Siphon = { name="Keraunos", augments={'Pet: Mag. Acc.+25','"Elemental Siphon"+25',}}
-	Keraunos.Perpetuation = { name="Keraunos", augments={'Pet: Accuracy+13 Pet: Rng. Acc.+13','"Avatar perpetuation cost" -6',}}
+	Keraunos.Perpetuation = { name="Keraunos", augments={'MP+69','Pet: Accuracy+20 Pet: Rng. Acc.+20','"Avatar perpetuation cost" -6',}}
 	Keraunos.BPRage = { name="Keraunos", augments={'Pet: "Mag.Atk.Bns."+17','Pet: Crit.hit rate +4',}}
 
     Conveyance = {}
     Conveyance.BPDelay = {}
-    Conveyance.BPDamage = {}
+    Conveyance.BPDamage = { name="Conveyance Cape", augments={'Summoning magic skill +3','Pet: Enmity+15','Blood Pact Dmg.+4',}}
 
 	Campestres = {}
 	Campestres.PetDD = { name="Campestres's Cape", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Eva.+20 /Mag. Eva.+20','Pet: Attack+10 Pet: Rng.Atk.+10','Pet: "Regen"+10','Pet: Damage taken -5%',}}
 	Campestres.Magic = { name="Campestres's Cape", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Mag. Acc.+10','"Fast Cast"+10',}}
 
-	HeliosBand = {}
+	TelchineHead = {}
+	TelchineBody = {}
+	TelchineHands = {}
+	TelchineLegs = {}
+
+    TelchineHead.Cure = { name="Telchine Cap", augments={'Mag. Acc.+25','"Cure" potency +6%','INT+5 MND+5',}}
+	TelchineBody.Cure = { name="Telchine Chas.", augments={'Mag. Acc.+12','"Cure" potency +6%',}}
+	TelchineHands.Cure = { name="Telchine Gloves", augments={'Mag. Acc.+20','"Cure" potency +8%','INT+6 MND+6',}}
+	TelchineLegs.Cure = { name="Telchine Braconi", augments={'"Mag.Atk.Bns."+7','"Cure" potency +7%','INT+5 MND+5',}}
+
+    HeliosBand = {}
 	HeliosJacket = {}
 	HeliosGloves = {}
 	HeliosSpats = {}
@@ -59,7 +69,17 @@ function init_gear_sets()
     --------------------------------------
     -- Precast Sets
     --------------------------------------
-    
+
+    -- Precast set for calling Trusts at iLVL 119
+    sets.precast.Trust = {
+		head="Beckoner's Horn +1",
+		body="Beckoner's Doublet +1",
+		hands="Beckoner's Bracers +1",
+		legs="Beckoner's Spats +1",
+		feet="Beckoner's Pigaches +1"
+	}
+    sets.midcast.Trust = sets.precast.Trust
+
     -- Precast sets to enhance JAs
     sets.precast.JA['Astral Flow'] = {
         head="Glyphic Horn +1"
@@ -71,17 +91,17 @@ function init_gear_sets()
         main=Keraunos.Siphon,
         sub="Vox Grip",
         -- ammo="Esper Stone +1",
-        head="Convoker's Horn +1", --TODO: Replace with augmented Telchine Cap
-        neck="Caller's Pendant",
-        -- ear1="Andoaa Earring",
-        -- ear2="Summoning Earring",
-        body="Beckoner's Doublet +1", --TODO: Replace with augmented Telchine Chasuble
-        hands="Glyphic Bracers +1", --TODO: Replace with augmented Telchine Gloves
-        ring1="Fervor Ring", --TODO: Replace with Globidonta Ring
-        ring2="Evoker's Ring",
-        back="Conveyance Cape", --TODO: Replace with augmented Conveyance Cape (SMN skill +5)
-        -- waist="Cimmerian Sash",
-        legs="Marduk's Shalwar +1", --TODO: Replace with augmented Telchine Braconi
+        head="Convoker's Horn +1", -- TODO: Replace with augmented Telchine Cap
+        neck="Incanter's Torque",
+        -- ear1="Lodurr Earring",
+        -- ear2="Andoaa Earring", -- TODO: replace with Cath Palug Earring
+        body="Beckoner's Doublet +1", -- TODO: Replace with augmented Telchine Chasuble
+        hands="Glyphic Bracers +1", -- TODO: Replace with Lamassu Mitts +1 or augmented Telchine Gloves
+        ring1="Evoker's Ring",
+        ring2="Fervor Ring", -- TODO: Replace with Zodiac Ring
+        back="Conveyance Cape", -- TODO: Replace with augmented Conveyance Cape (SMN skill +5)
+        waist="Lucidity Sash", -- TODO: Replace with Kobo Obi (Geas Fete, RuAun, Seiryu)
+        legs="Marduk's Shalwar +1", -- TODO: Replace with augmented Telchine Braconi
         feet="Beckoner's Pigaches +1"
     }
 
@@ -91,12 +111,16 @@ function init_gear_sets()
 
     -- Pact delay reduction gear
     sets.precast.BloodPactWard = {
-        ammo="Seraphicaller",
-		head="Glyphic Horn +1",
-        body="Glyphic Doublet +1",
-        hands="Glyphic Bracers +1",
-        back="Conveyance Cape", --TODO: Augment Conveyance Cape with BP Delay II -2/3
-        feet="Glyphic Pigaches +1"
+        ammo="Sancus Sachet +1", -- BP Delay II -7
+		head="Beckoner's Horn +1", 
+        ear1="Caller's Earring", -- BP Delay -1
+        ear2="Evans Earring", -- BP Delay -2
+        body="Glyphic Doublet +1", -- BP Delay II -2
+        hands="Glyphic Bracers +1", -- BP Delay -6
+        ring1="Evoker's Ring",
+        back="Samanisi Cape", -- BP Delay -3   TODO: Augment Conveyance Cape with BP Delay II -2/3
+        legs="Glyphic Spats +1", -- BP Delay -6
+        feet="Glyphic Pigaches +1" -- BP Delay II -1
     }
     sets.precast.BloodPactRage = sets.precast.BloodPactWard
 
@@ -104,18 +128,18 @@ function init_gear_sets()
     
     sets.precast.FC = {
         ammo="Impatiens",
-        head="Nahtirah Hat",
+        head="Amalric Coif",
         neck="Orunmila's Torque",
         ear1="Loquacious Earring",
         ear2="Enchanter's Earring +1",
-        body="Vanir Cotehardie",
+        body="Inyanga Jubbah +1",
         hands="Telchine Gloves",
         ring1="Lebeche Ring",
         ring2="Prolix Ring",
-        back="Swith Cape",
+        back=Campestres.Magic,
         waist="Witful Belt",
         legs="Orvail Pants +1",
-        feet="Chelona Boots +1"
+        feet="Amalric Nails"
     }
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
@@ -160,32 +184,46 @@ function init_gear_sets()
     --------------------------------------
 
     sets.midcast.FastRecast = {
-        head="Nahtirah Hat",
+        head="Beckoner's Horn",
+        neck="Incanter's Torque",
+        ear1="Gifted Earring",
         ear2="Loquacious Earring",
-        body="Vanir Cotehardie",
-        hands="Bokwus Gloves",
+        body="Vrikodara Jupon",
+        hands="Regimen Mittens",
         ring1="Prolix Ring",
-        back="Swith Cape",
-        waist="Witful Belt",
-        legs="Hagondes Pants +1",
-        feet="Hagondes Sabots"
+        back=Campestres.Magic,
+        waist="Goading Belt",
+        legs="Assiduity Pants +1",
+        feet="Beckoner's Pigaches +1"
     }
 
-    sets.midcast.Cure = {main="Tamaxchi",sub="Genbu's Shield",
-        head="Nahtirah Hat",
-        ear2="Loquacious Earring",
-        body="Heka's Kalasiris",
-        hands="Bokwus Gloves",
+    sets.midcast.Cure = {
+        main="Tamaxchi",
+        sub="Genbu's Shield",
+        ammo="Quartz Tathlum",
+        head=TelchineHead.Cure,
+        ear1="Medicant's Earring",
+        ear2="Lifestorm Earring",
+        body="Vrikodara Jupon",
+        hands=TelchineHands.Cure,
         ring1="Prolix Ring",
         ring2="Sirona's Ring",
         back="Swith Cape",
-        waist="Witful Belt",
-        legs="Hagondes Pants +1",
-        feet="Hagondes Sabots"
+        waist="Gishdubar Sash",
+        legs=TelchineLegs.Cure,
+        feet="Medium's Sabots"
     }
 
     sets.midcast.Stoneskin = {
         waist="Siegel Sash"
+    }
+
+    sets.midcast['Summoning Magic'] = {
+        ammo="Sancus Sachet +1", -- Avatar Lv. 119
+        main="Nirvana", -- Avatar Lv. +2
+        ear1="Beckoner's Earring", -- Avatar Lv. +1
+        back="Campestres's Cape", -- Avatar Lv. +1
+        feet="Bunzi's Sabots" -- Avatar Lv. +1 
     }
 
     sets.midcast['Elemental Magic'] = {
@@ -221,35 +259,36 @@ function init_gear_sets()
         feet="Bokwus Boots"
     }
 
-
     -- Avatar pact sets.  All pacts are Ability type.
     
     sets.midcast.Pet.BloodPactWard = {
-        head="Convoker's Horn +1",
-        neck="Caller's Pendant",
-        --ear1="Andoaa Earring",
-        ear2="Evans Earring", --TODO: Replace with Summoning Earring
+        main="Espiritus",
+        sub="Vox Grip",
+        head="Beckoner's Horn +1",
+        neck="Caller's Pendant", -- TODO: Replace earrings with Cath Palug and Lodurr
+        ear1="Andoaa Earring",
+        ear2="Evans Earring", -- TODO: Replace with Summoning Earring
         body="Beckoner's Doublet +1",
-        hands="Glyphic Bracers +1",
-        ring1="Evoker's Ring",
-        ring2="Fervor Ring", --TODO: Replace with Globidonta Ring
-        back="Conveyance Cape", --TODO: Replace with augmented Conveyance Cape (SMN skill +5)
-        -- waist="Cimmerian Sash",
+        hands="Inyanga Dastanas +1", -- TODO: Replace with Lamassu Mitts +1
+        ring1="Fervor Ring", -- TODO: Replace with Stikini/+1 Ring
+        ring2="Evoker's Ring",
+        back=Conveyance.BPDamage,
+        waist="Lucidity Sash", -- TODO: Replace with Kobo Obi
         legs="Beckoner's Spats +1",
-        -- feet="Marduk's Crackows +1"
+        -- feet="Marduk's Crackows +1" -- TODO: Get Baayami Sabots +1 Su3
     }
 
     sets.midcast.Pet.DebuffBloodPactWard = {
         head=HeliosBand.BPWard,
         neck="Caller's Pendant",
-        -- ear1="Andoaa Earring",
-        ear2="Evans Earring", --TODO: Replace with Summoning Earring
+        ear1="Andoaa Earring",
+        ear2="Evans Earring", -- TODO: Replace with Summoning Earring
         body=HeliosJacket.BPWard,
         hands=HeliosGloves.BPWard,
         ring1="Evoker's Ring",
-        ring2="Fervor Ring", --TODO: Replace with Globidonta Ring
-        back="Conveyance Cape", --TODO: Replace with augmented Conveyance Cape
-        -- waist="Cimmerian Sash",
+        ring2="Fervor Ring", -- TODO: Replace with Globidonta Ring
+        back=Conveyance.BPDamage,
+        waist="Lucidity Sash",
         legs=HeliosSpats.BPWard,
         feet=HeliosBoots.BPWard
     }
@@ -257,19 +296,19 @@ function init_gear_sets()
     sets.midcast.Pet.DebuffBloodPactWard.Acc = sets.midcast.Pet.DebuffBloodPactWard
     
     sets.midcast.Pet.PhysicalBloodPactRage = {
-        main="Espiritus", --TODO: Replace with Nirvana
-        sub="Vox Grip",
-        ammo="Seraphicaller",
+        main="Gridarvor", -- TODO: Replace with Nirvana
+        sub="Vox Grip", -- TODO: Replace with Elan Strap/+1
+        ammo="Sancus Sachet +1", -- TODO: Replace with Epitaph
         head=HeliosBand.BPPhysical,
-        neck="Caller's Pendant", --TODO: Replace with Sacrifice Torque
-        --ear1="Esper Earring",
-        ear2="Evans Earring", --TODO: Replace with Domesticator's Earring (Ouryu HTBF)
+        neck="Caller's Pendant", -- TODO: Replace with Shulmanu Collar (Omen, Fu) > Summoner's Collar +1/+2
+        ear1="Gelos Earring",
+        ear2="Kyrene's Earring", -- TODO: Replace with Lugalbanda Earring (Omen, Kei)
         body=HeliosJacket.BPPhysical,
         hands=HeliosGloves.BPPhysical,
-        ring1="Evoker's Ring",
-        ring2="Fervor Ring", --TODO: Maybe replace with Thurandaut Ring
-        back="Samanisi Cape", --TODO: Replace with augmented Conveyance Cape
-        -- waist="Mujin Obi",
+        ring1="Evoker's Ring", -- TODO: Replace rings with Varar +1 and Cath Palug rings
+        ring2="Fervor Ring",
+        back=Conveyance.BPDamage,
+        waist="Mujin Obi", -- TODO: Replace with Incarnation Sash (Vagary, Plouton)
         legs=HeliosSpats.BPPhysical,
         feet=HeliosBoots.BPPhysical
     }
@@ -280,19 +319,19 @@ function init_gear_sets()
         --All Helios Augments:
         --Blood Pact Damage +7
         --Pet: MAB+30, Crit. Hit Rate +4
-        main=Keraunos.BPRage,
-        sub="Vox Grip",
-        ammo="Seraphicaller",
-        head=HeliosBand.BPMagic,
-        neck="Eidolon Pendant +1",
-        --ear1="Esper Earring",
-        ear2="Evans Earring", --TODO: Replace with augmented Diamond Earring
-        body=HeliosJacket.BPMagic,
+        main=Keraunos.BPRage, -- TODO: Replace with Grioavolr with augs BP8~10 Mab 17~20+
+        sub="Vox Grip", -- TODO: Replace with Elan Strap/+1
+        ammo="Sancus Sachet +1", -- TODO: Replace with Epitaph
+        head=HeliosBand.BPMagic, -- TODO: Replace with Apogee Crown(A) > Cath Palug Crown
+        neck="Eidolon Pendant +1", -- TODO: Replace with Adad Amulet > Summoner's Collar +1/+2
+        ear1="Gelos Earring",
+        ear2="Evans Earring", -- TODO: Replace with Lugalbanda
+        body=HeliosJacket.BPMagic, -- TODO: Replace with Apogee Dalmatica +1
         hands=HeliosGloves.BPMagic,
-        ring1="Speaker's Ring", --TODO: Maybe replace with Thurandaut Ring? (Adoulin reward)
+        ring1="Speaker's Ring", -- TODO: Replace with Varar/+1 rings
         ring2="Evoker's Ring",
-        back="Samanisi Cape", --TODO: Replace with augmented Conveyance Cape (BP Damage +5)
-        waist="Caller's Sash",
+        back=Campestres.Magic,
+        waist="Caller's Sash", -- TODO: Replace with Regal Belt (Omen, Ou)
         legs=HeliosSpats.BPMagic,
         feet=HeliosBoots.BPMagic
     }
@@ -317,7 +356,7 @@ function init_gear_sets()
     -- Resting sets
     sets.resting = {
         main=gear.Staff.HMP,
-        ammo="Seraphicaller",
+        ammo="Sancus Sachet +1",
         head="Beckoner's Horn +1",
         neck="Wiglen Gorget",
         ear1="Gifted Earring",
@@ -334,41 +373,33 @@ function init_gear_sets()
     
     -- Idle sets
     sets.idle = {
-        main="Bolelabunga",
-        sub="Genbu's Shield",
-        ammo="Seraphicaller",
+        main="Gridarvor", -- TODO: Nirvana
+        sub="Vox Grip", -- TODO: Oneiros Grip
+        ammo="Sancus Sachet +1",
         head="Beckoner's Horn +1",
-        neck="Wiglen Gorget",
-        ear1="Gifted Earring",
-        ear2="Ethereal Earring",
+        neck="Caller's Pendant",
+        ear1="Infused Earring", -- TODO: Cath Palug Earring
+        ear2="Evans Earring",
         body="Shomonjijoe +1",
-        hands="Serpentes Cuffs",
-        ring1="Sheltered Ring",
-        ring2="Paguroidea Ring",
+        hands="Beckoner's Bracers", -- TODO: Asteria Mitts +1 (UNM, Azure-toothed Clawberry)
+        ring1="Evoker's Ring",
+        ring2="Paguroidea Ring", -- TODO: Replace with Woltaris or Stikini/+1 ring
         back="Umbra Cape",
-        waist="Fucho-no-Obi",
-        legs="Nares Trews",
+        waist="Lucidity Sash",
         legs="Assiduity Pants +1",
-        feet="Serpentes Sabots"
+        feet="Inyanga Crackows +1" -- TODO: Apogee Pumps
     }
 
-    sets.idle.PDT = {
+    sets.idle.PDT = set_combine(sets.idle, {
         main=gear.Staff.PDT,
-        sub="Achaq Grip",
-        ammo="Seraphicaller",
-        head="Convoker's Horn +1",
         neck="Twilight Torque",
-        ear1="Gifted Earring",
-        ear2="Loquacious Earring",
-        body="Hagondes Coat +1",
-        hands="Yaoyotl Gloves",
+        body="Inyanga Jubbah +1",
+        hands="Inyanga Dastanas +1",
         ring1="Defending Ring",
         ring2="Sangoma Ring",
-        back="Umbra Cape",
-        waist="Fucho-no-Obi",
-        legs="Hagondes Pants +1",
-        feet="Herald's Gaiters"
-    }
+        back="Cheviot Cape",
+        legs="Inyanga Shalwar +1",
+    })
 
     -- perp costs:
     -- spirits: 7
@@ -391,45 +422,45 @@ function init_gear_sets()
     -- Can make due without either the head or the body, and use +refresh items in those slots.
     
     sets.idle.Avatar = {
-        main="Gridarvor", --TODO: Replace with Nirvana
-        sub="Achaq Grip", --TODO: Replace with Oneiros Grip
-        ammo="Seraphicaller",
+        main="Gridarvor", -- TODO: Replace with Nirvana
+        sub="Achaq Grip", -- TODO: Replace with Oneiros Grip
+        ammo="Sancus Sachet +1",
         head="Beckoner's Horn +1",
         neck="Caller's Pendant",
-        ear1="Gifted Earring", --TODO: Get a Rimeice Earring
+        ear1="Gifted Earring", -- TODO: Get a Rimeice Earring
         ear2="Evans Earring",
-        body="Shomonjijoe +1",
-        hands="Serpentes Cuffs", --TODO: Get augmented Helios Gloves
+        body=HeliosJacket.PetDD,
+        hands=HeliosGloves.PetDD, -- TODO: Get augmented Helios Gloves
         ring1="Evoker's Ring",
-        ring2="Sangoma Ring", --TODO: Maybe replace with Thurandaut Ring (Adoulin reward)
-        back="Lucidity Sash", --TODO: Replace with augmented Conveyance Cape
-        waist="Fucho-no-Obi", --TODO: Replace with Moepapa Stone
-        legs="Assiduity Pants +1",
-        feet="Psycloth Boots" --TODO: Replace with augmented Helios Boots
+        ring2="Sangoma Ring", -- TODO: Maybe replace with Thurandaut Ring (Adoulin reward)
+        back=Campestres.PetDD,
+        waist="Fucho-no-Obi", -- TODO: Replace with Moepapa Stone
+        legs=HeliosSpats.PetDD,
+        feet=HeliosBoots.PetDD -- TODO: Replace with augmented Helios Boots
     }
 
     sets.idle.PDT.Avatar = {
-        main="Gridarvor", --TODO: Replace with Nirvana
-        sub="Achaq Grip", --TODO: Replace with Oneiros Grip
-        ammo="Seraphicaller",
-        head="Beckoner's Horn +1", --TODO: Replace with Selenian Cap
+        main="Gridarvor", -- TODO: Replace with Nirvana
+        sub="Achaq Grip", -- TODO: Replace with Oneiros Grip
+        ammo="Sancus Sachet +1",
+        head="Beckoner's Horn +1", -- TODO: Replace with Selenian Cap
         neck="Caller's Pendant",
-        ear1="Handler's Earring", --TODO: Replace with Handler's Earring
-        ear2="Handler's Earring +1", --TODO: Replace with Handler's Earring +1
+        ear1="Handler's Earring", -- TODO: Replace with Handler's Earring
+        ear2="Handler's Earring +1", -- TODO: Replace with Handler's Earring +1
         body="Shomonjijoe +1",
-        hands="Regimen Mittens", --TODO: Replace with augmented Telchine Gloves
+        hands="Regimen Mittens", -- TODO: Replace with augmented Telchine Gloves
         ring1="Evoker's Ring",
-        ring2="Defending Ring", --TODO: Maybe replace with Thurandaut Ring (Adoulin Reward)
-        back="Conveyance Cape", --TODO: Augment Conveyance Cape
-        waist="Fucho-no-Obi", --TODO: Replace with Isa Belt
-        legs="Beckoner's Spats +1", --TODO: Replace with augmented Telchine Braconi
+        ring2="Defending Ring", -- TODO: Maybe replace with Thurandaut Ring (Adoulin Reward)
+        back=Campestres.PetDD,
+        waist="Fucho-no-Obi", -- TODO: Replace with Isa Belt
+        legs="Beckoner's Spats +1", -- TODO: Replace with augmented Telchine Braconi
         feet="Beckoner's Pigaches +1"
     }
 
     sets.idle.Spirit = {
         main="Gridarvor",
         sub="Achaq Grip",
-        ammo="Seraphicaller",
+        ammo="Sancus Sachet +1",
         head="Convoker's Horn +1",
         neck="Caller's Pendant",
         ear1="Gifted Earring",
@@ -438,7 +469,7 @@ function init_gear_sets()
         hands="Serpentes Cuffs",
         ring1="Evoker's Ring",
         ring2="Sangoma Ring",
-        back="Samanisi Cape",
+        back=Campestres.PetDD,
         waist="Fucho-no-Obi",
         legs="Glyphic Spats +1",
         feet="Herald's Gaiters"
@@ -447,7 +478,7 @@ function init_gear_sets()
     sets.idle.Town = {
         main="Bolelabunga",
         sub="Genbu's Shield",
-        ammo="Seraphicaller",
+        ammo="Sancus Sachet +1",
         head="Beckoner's Horn +1",
         neck="Wiglen Gorget",
         ear1="Gifted Earring",
@@ -456,7 +487,7 @@ function init_gear_sets()
         hands="Serpentes Cuffs",
         ring1="Sheltered Ring",
         ring2="Paguroidea Ring",
-        back="Umbra Cape",
+        back=Campestres.PetDD,
         waist="Fucho-no-Obi",
         legs="Nares Trews",
         legs="Assiduity Pants +1",
@@ -551,7 +582,7 @@ function init_gear_sets()
     
     -- Normal melee group
     sets.engaged = {
-        ammo="Seraphicaller",
+        ammo="Sancus Sachet +1",
         head="Zelus Tiara",
         neck="Asperity Necklace",
         ear1="Bladeborn Earring",
