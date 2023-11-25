@@ -12,6 +12,15 @@ function init_gear_sets()
 	-- Rosmerta.Cure   = {name="Rosmerta's Cape", augments={'MND+20','"Cure" Potency+10%'}}
 	-- Rosmerta.FC     = {name="Rosmerta's Cape", augments={'Fast Cast+10%'}}
 
+	TelchineHead = {}
+	TelchineBody = {}
+	TelchineHands = {}
+	TelchineLegs = {}
+	TelchineHead.Cure = { name="Telchine Cap", augments={'Mag. Acc.+25','"Cure" potency +6%','INT+5 MND+5',}}
+	TelchineBody.Cure = { name="Telchine Chas.", augments={'Mag. Acc.+12','"Cure" potency +6%',}}
+	TelchineHands.Cure = { name="Telchine Gloves", augments={'Mag. Acc.+20','"Cure" potency +8%','INT+6 MND+6',}}
+	TelchineLegs.Cure = { name="Telchine Braconi", augments={'"Mag.Atk.Bns."+7','"Cure" potency +7%','INT+5 MND+5',}}
+
 	--------------------------------------
 	-- Start defining the sets
 	--------------------------------------
@@ -206,17 +215,17 @@ function init_gear_sets()
 	sets.midcast['Blue Magic'].Healing = {
 		ammo="Quartz Tathlum +1", --MND +4
 		--head="Carmine Mask", --TODO: Upgrade to +1
-		head="Telchine Cap", --MND+22 Aug:CurePot+6%
+		head=TelchineHead.Cure,
 		neck="Phalaina Locket", --MND+3, CurePot+4%, CureRcv+4%
 		ear1="Mendicant's Earring", --CurePot+5%, CureSpellcastTime-5%
 		ear2="Lifestorm Earring", --MND+4
 		body="Vrikodara Jupon", --CurePot+13%, FastCast+5%, MND+29
-		hands="Telchine Gloves", --CurePot+10%, Aug: MND+6, CurePot+8%
+		hands=TelchineHands.Cure,
 		ring1="Leviathan Ring +1", --TODO: Buy on AH ~1M
 		ring2="Kunaji Ring", --TODO: Get Kunaji Ring from Yumcax // CureRcv+5%
 		back="Oretan. Cape +1", --TODO: Augment a new Rosmerta's Cape for healing // Cure Pot+10%
 		waist="Gishdubar Sash", --CureRcv+10%
-		legs="Telchine Braconi", --Aug: MND+5, CurePot+7%
+		legs=TelchineLegs.Cure,
 		feet="Medium's Sabots" --CurePot+7%
 	}
 		--{
