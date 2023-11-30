@@ -43,13 +43,13 @@ function init_gear_sets()
 	HeliosBoots = {}
 
     HeliosBand.PetDD = { name="Helios Band", augments={'Pet: Accuracy+26 Pet: Rng. Acc.+26','Pet: "Dbl. Atk."+8','Pet: Haste+6',}}
-    HeliosJacket.PetDD = { name="Helios Jacket", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+4','Pet: Haste+3',}}
+    HeliosJacket.PetDD = { name="Helios Jacket", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+8','Pet: Haste+6',}}
     HeliosGloves.PetDD = { name="Helios Gloves", augments={'Pet: Accuracy+30 Pet: Rng. Acc.+30','Pet: "Dbl. Atk."+8','Pet: Haste+6',}}
-    HeliosSpats.PetDD = { name="Helios Spats", augments={'Pet: Accuracy+30 Pet: Rng. Acc.+30','Pet: "Dbl. Atk."+5','Pet: Haste+6',}}
+    HeliosSpats.PetDD = { name="Helios Spats", augments={'Pet: Accuracy+30 Pet: Rng. Acc.+30','Pet: "Dbl. Atk."+7','Pet: Haste+6',}}
     HeliosBoots.PetDD = { name="Helios Boots", augments={'Pet: Accuracy+27 Pet: Rng. Acc.+27','Pet: "Dbl. Atk."+7','Pet: Haste+6',}}
 
 	HeliosBand.BPPhysical = { name="Helios Band", augments={'Pet: Attack+30 Pet: Rng.Atk.+30','Pet: Crit.hit rate +4','Blood Pact Dmg.+7',}}
-    HeliosJacket.BPPhysical = { name="Helios Jacket", augments={'Pet: Attack+22 Pet: Rng.Atk.+22','Pet: Crit.hit rate +3','Blood Pact Dmg.+7',}}
+    HeliosJacket.BPPhysical = { name="Helios Jacket", augments={'Pet: Attack+23 Pet: Rng.Atk.+23','Pet: Crit.hit rate +3','Blood Pact Dmg.+7',}}
     HeliosGloves.BPPhysical = { name="Helios Gloves", augments={'Pet: Attack+30 Pet: Rng.Atk.+30','Pet: Crit.hit rate +3','Blood Pact Dmg.+5',}}
     HeliosSpats.BPPhysical = { name="Helios Spats", augments={'Pet: Attack+28 Pet: Rng.Atk.+28','Pet: Crit.hit rate +4','Blood Pact Dmg.+5',}}
     HeliosBoots.BPPhysical = { name="Helios Boots", augments={'Pet: Attack+28 Pet: Rng.Atk.+28','Pet: Crit.hit rate +3','Blood Pact Dmg.+5',}}
@@ -96,7 +96,7 @@ function init_gear_sets()
         -- ear1="Lodurr Earring",
         -- ear2="Andoaa Earring", -- TODO: replace with Cath Palug Earring
         body="Beckoner's Doublet +1", -- TODO: Replace with augmented Telchine Chasuble
-        hands="Glyphic Bracers +1", -- TODO: Replace with Lamassu Mitts +1 or augmented Telchine Gloves
+        hands="Lamassu Mitts +1",
         ring1="Evoker's Ring",
         ring2="Fervor Ring", -- TODO: Replace with Zodiac Ring
         back="Conveyance Cape", -- TODO: Replace with augmented Conveyance Cape (SMN skill +5)
@@ -184,7 +184,7 @@ function init_gear_sets()
     --------------------------------------
 
     sets.midcast.FastRecast = {
-        head="Beckoner's Horn",
+        head="Beckoner's Horn +1",
         neck="Incanter's Torque",
         ear1="Gifted Earring",
         ear2="Loquacious Earring",
@@ -269,7 +269,7 @@ function init_gear_sets()
         ear1="Andoaa Earring",
         ear2="Evans Earring", -- TODO: Replace with Summoning Earring
         body="Beckoner's Doublet +1",
-        hands="Inyanga Dastanas +1", -- TODO: Replace with Lamassu Mitts +1
+        hands="Lamassu Mitts +1",
         ring1="Fervor Ring", -- TODO: Replace with Stikini/+1 Ring
         ring2="Evoker's Ring",
         back=Conveyance.BPDamage,
@@ -381,7 +381,7 @@ function init_gear_sets()
         ear1="Infused Earring", -- TODO: Cath Palug Earring
         ear2="Evans Earring",
         body="Shomonjijoe +1",
-        hands="Beckoner's Bracers", -- TODO: Asteria Mitts +1 (UNM, Azure-toothed Clawberry)
+        hands="Asteria Mitts +1",
         ring1="Evoker's Ring",
         ring2="Paguroidea Ring", -- TODO: Replace with Woltaris or Stikini/+1 ring
         back="Umbra Cape",
@@ -581,21 +581,8 @@ function init_gear_sets()
     --------------------------------------
     
     -- Normal melee group
-    sets.engaged = {
-        ammo="Sancus Sachet +1",
-        head="Zelus Tiara",
-        neck="Asperity Necklace",
-        ear1="Bladeborn Earring",
-        ear2="Steelflash Earring",
-        body="Vanir Cotehardie",
-        hands="Bokwus Gloves",
-        ring1="Rajas Ring",
-        ring2="K'ayres Ring",
-        back="Umbra Cape",
-        waist="Goading Belt",
-        legs="Hagondes Pants +1",
-        feet="Hagondes Sabots"
-    }
+    sets.engaged = set_combine(sets.idle.Avatar, {
+    })
 end
 
 -- Select default macro book on initial load or subjob change.
